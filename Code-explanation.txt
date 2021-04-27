@@ -1,0 +1,65 @@
+﻿Code Challenge
+
+
+I developed a real-time chat-application using socket.io, Node.js and Express with Vanilla.js on the frontend.
+
+
+Server.js:
+
+
+* I started with setting up the server for the application and installed all the npm  packages such as express, socket.io etc. Socket.io is a library that enables real-time, bidirectional and event based connection between the browser and server
+
+
+  
+
+  
+
+
+
+  
+
+
+
+
+
+* As soon as the client connects to the server, two messages are broadcasted to the chat room.
+
+
+   * “Welcome to ChatCord”.
+   * “Alex has joined the chat”.
+
+
+  
+
+
+
+* When a client leaves the chat, a message is broadcasted that a user has left the chat.
+
+
+User.js:
+
+
+* I created a separate file for users which handles all the functionalities of a user such as joining the server, leaving the server, getting the current user etc.
+
+
+* For the challenge, instead of using databases, I stored the user information in an array called users.
+* Every time a new user enters a chatroom, an object is created which contains the information : username, id, room. This object is then pushed to the users array.
+
+
+  
+
+
+
+Main.js:
+
+
+It is the client side javascript file which acts as an interface between the server and the user. 
+* Outputs the message to the DOM.
+
+
+  
+
+
+
+* Add room names and usernames to the DOM.
+   *
