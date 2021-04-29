@@ -9,6 +9,7 @@ This application is inspired by Traversy Media's <a href = 'https://www.youtube.
   cd Chat App
   npm install
   npm start
+  Go to <a>http://localhost:3000/</a>
   </code>
 </pre>
 Feel free to play with it.
