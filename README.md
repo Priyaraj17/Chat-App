@@ -13,3 +13,6 @@ This application is inspired by Traversy Media's <a href = 'https://www.youtube.
   </code>
 </pre>
 Feel free to play with it.
+
+# Demo Video:
+https://user-images.githubusercontent.com/40101776/116515306-bc019a00-a8e9-11eb-823e-f8c0cd6b9cee.mp4
