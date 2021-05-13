@@ -3,8 +3,6 @@ const path = require("path");
 const express = require("express");
 const socektio = require("socket.io");
 const formatMessage = require("./utils/messages");
-const db = require("db");
-
 const {
   getCurrentUser,
   joinUser,
