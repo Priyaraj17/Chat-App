@@ -1,70 +1,37 @@
 const http = require("http");
-const path = require("path");
-const express = require("express");
-const socektio = require("socket.io");
-const formatMessage = require("./utils/messages");
-const db = require("db");
+import express from "express";
+import logger from "morgan";
+import cors from "cors";
+import mongoose from "mongoose";
 
-const {
-  getCurrentUser,
-  joinUser,
-  userLeft,
-  getRoomUsers,
-} = require("./utils/users");
+//Routes:
+//const db = require("./db/index");
+const indexRouter = require("./routes/index.js");
+const userRouter = require("./routes/user.js");
+const chatRoomRouter = require("./routes/chatRoom.js");
+const deleteRouter = require("./routes/delete.js");
 
 const app = express();
-const server = http.createServer(app);
-const io = socektio(server);
 
-const Bot = "Albus Dumbledore";
+const PORT = process.env.PORT || "3000";
 
-// Set static folder:
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use("/", indexRouter);
+app.use("/users", userRouter);
+app.use("/room", chatRoomRouter);
+app.use("/delete", deleteRouter);
 
-// Run when client connects:
-io.on("connection", (socket) => {
-  socket.on("joinRoom", ({ username, room }) => {
-    const user = joinUser(socket.id, username, room);
-    socket.join(user.room);
-
-    // Welcome current user:
-    socket.emit("message", formatMessage(Bot, "Welcome to ChatCord"));
-
-    // BroadCast when a user connects
-    socket.broadcast
-      .to(user.room)
-      .emit(
-        "message",
-        formatMessage(Bot, `${user.username} has joined the chat`)
-      );
-
-    // Send users and room info:
-    io.to(user.room).emit("roomUsers", {
-      room: user.room,
-      users: getRoomUsers(user.room),
-    });
-  });
-
-  // Listen for chatMessage:
-  socket.on("chatMessage", (msg) => {
-    const user = getCurrentUser(socket.id);
-    io.to(user.room).emit("message", formatMessage(user.username, msg));
-  });
-
-  // Runs when client disconnects
-  socket.on("disconnect", () => {
-    const user = userLeft(socket.id);
-
-    if (user) {
-      io.to(user.room).emit(
-        "message",
-        formatMessage(Bot, `${user.username} has left the chat`)
-      );
-    }
+/** catch 404 and forward to error handler */
+app.use("*", (req, res) => {
+  return res.status(404).json({
+    success: false,
+    message: "API endpoint doesnt exist",
   });
 });
 
-const PORT = 3000 || process.env.PORT;
-
+/** Create HTTP server. */
+const server = http.createServer(app);
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
