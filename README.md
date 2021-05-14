@@ -1,8 +1,31 @@
 # Chat-App
 
 <h3> Description </h3>
-A Real-Time Chat-App developed using Node.js, Express, Socket.io and Vanilla Javascript on the front-end. There are different chat-rooms each has there own users.
-This application is inspired by Traversy Media's <a href = 'https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA'>Youtube Channel </a>.
+<p>It is a real-time chat application built using Node.js, Express, Socket.io, RESTful Web
+Service. 
+Some the features of this application are
+<ul>
+<li>Uses Express as the application Framework.</li>
+<li>Real-time communication between a client and a server using Socket.io.</li>
+<li>Uses RESTful Web Service for serve different platforms.</li>
+<li>I am currently working on integrating mongoDB, mongoose to store the messages.</li>
+</ul>
+
+# Working Procedure:
+A connection is opened between the client and the server so that the client can send and receive data. This
+allows real-time communication using TCP sockets. This is made possible by Socket.io. The client
+connects to the server through a socket. Once connections is successful, client and server can emit and
+listen to events. Currently, I am using an array called ‘users’ to store the information of all the new users.As
+soon as a new user enters a chat room an object is created that contains all the information such as
+username, id and room. This object is pushed into the ‘users’ array. The repository contains details
+information about the code.
+
+<h5>Features to add:</h5>
+<ul>
+<li>Authentication using jwt.</li>
+<li>Database to store the messages.</li>
+</ul>
+ </p>
 
 <h3> Usage </h3>
 <pre> <code>
@@ -14,5 +37,8 @@ This application is inspired by Traversy Media's <a href = 'https://www.youtube.
 </pre>
 Feel free to play with it.
 
-# Demo Video:
-https://user-images.githubusercontent.com/40101776/116515306-bc019a00-a8e9-11eb-823e-f8c0cd6b9cee.mp4
+# How to understand the code?
+<p> Please take a look <a href="https://github.com/Priyaraj17/Chat-App/blob/master/Code-explanation.pdf"> here </a></p>
+
+#Updates:
+I am working on integrating a database that will store the chat messages and the users information. I am working on a new branch.
