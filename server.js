@@ -1,19 +1,19 @@
 const http = require("http");
-import express from "express";
-import logger from "morgan";
-import cors from "cors";
-import mongoose from "mongoose";
+const express = require("express");
+const logger = require("morgan");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
 //Routes:
-//const db = require("./db/index");
+const db = require("./db/index");
 const indexRouter = require("./routes/index.js");
 const userRouter = require("./routes/user.js");
 const chatRoomRouter = require("./routes/chatRoom.js");
 const deleteRouter = require("./routes/delete.js");
 
 const app = express();
-
-const PORT = process.env.PORT || "3000";
+dotenv.config({ path: "./config.env" });
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -24,14 +24,7 @@ app.use("/users", userRouter);
 app.use("/room", chatRoomRouter);
 app.use("/delete", deleteRouter);
 
-/** catch 404 and forward to error handler */
-app.use("*", (req, res) => {
-  return res.status(404).json({
-    success: false,
-    message: "API endpoint doesnt exist",
-  });
-});
-
 /** Create HTTP server. */
+const PORT = process.env.PORT || "3000";
 const server = http.createServer(app);
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));

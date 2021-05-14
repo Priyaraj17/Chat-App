@@ -1,10 +1,11 @@
-import express from "express";
-import users from "../controller/user";
+const express = require("express");
 
 const router = express.Router();
 
 router.post("/login/:userId", (req, res) => {
-  console.log("hello ");
+  res.status(200).json({
+    message: "Success",
+  });
 });
 
-export default router;
+module.exports = router;

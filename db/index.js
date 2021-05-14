@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import config from "./index.js";
+const mongoose = require("mongoose");
+const config = require("./config.js");
 
 const DB = `mongodb://${config.db.url}/${config.db.name}`;
 
@@ -8,6 +8,6 @@ const mongo = mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("DB connection successful!"));
+  .then(() => console.log(`DB connection successful! ${DB}`));
 
 module.exports = mongo;

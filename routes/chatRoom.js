@@ -1,5 +1,5 @@
-import express from "express";
-import chatRoom from "../controller/chatRoom";
+const express = require("express");
+const chatRoom = require("../controller/chatRoom");
 
 const router = express.Router();
 
@@ -8,4 +8,4 @@ router
   .get("/:roomId", chatRoom.getChatsByRoom)
   .post(":/roomId/message", chatRoom.sendMessage);
 
-export default router;
+module.exports = router;
