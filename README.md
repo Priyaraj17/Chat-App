@@ -41,4 +41,4 @@ Feel free to play with it.
 <p> Please take a look <a href="https://github.com/Priyaraj17/Chat-App/blob/master/Code-explanation.pdf"> here </a></p>
 
 #Updates:
-I am working on integrating a database that will store the chat messages and the users information. I am working on a new branch.
+I am working on integrating a database that will store the chat messages and the users information. I am working on a new branch. Please visit this <a href="https://github.com/Priyaraj17/Chat-App/tree/new_changes"> link</a>.
