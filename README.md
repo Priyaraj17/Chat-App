@@ -37,6 +37,15 @@ information about the code.
 </pre>
 Feel free to play with it.
 
+<h3> Screenshots </h3>
+<p>
+ 
+![WhatsApp Image 2021-05-24 at 7 46 13 PM](https://user-images.githubusercontent.com/40101776/119361837-b79e8600-bcc9-11eb-87a9-154c70ab92eb.jpeg)
+
+![WhatsApp Image 2021-05-24 at 7 45 43 PM](https://user-images.githubusercontent.com/40101776/119361850-ba00e000-bcc9-11eb-8954-431a3d7ccd58.jpeg)
+ </p>
+
+
 # How to understand the code?
 <p> Please take a look <a href="https://github.com/Priyaraj17/Chat-App/blob/master/Code-explanation.pdf"> here </a></p>
 
