@@ -1,22 +1,5 @@
 const Users = require("../model/users");
 
-// const testUser = new User({
-//   firstName: "Priyaraj",
-//   lastName: "Sharma",
-//   email: "priyaraj.17@outlook.com",
-//   password: "hello@123",
-//   passwordConfirm: "hello@123",
-// });
-
-// testUser
-//   .save()
-//   .then((doc) => {
-//     console.log(doc);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await Users.find();
